@@ -1,0 +1,45 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Frontend Development Standards (frontend.mdc)
+
+## Project Structure and Organization
+
+The frontend codebase is organized as a modular React + TypeScript project with a clear directory structure. We follow a **feature-based structure** to ensure scalability and maintainability. Key directories under `src/` include:
+
+```plaintext
+project-root/
+├── public/               # Static files (index.html, icons, etc.)
+├── src/                  # Application source code
+│   ├── assets/           # Static assets (images, fonts)
+│   ├── components/       # Reusable UI components (buttons, modals, etc.)
+│   │   └── Button/       # Example component folder
+│   │       ├── Button.tsx          # Component implementation (PascalCase)
+│   │       ├── Button.test.tsx     # Component unit test
+│   │       └── Button.module.css   # (Optional) component-specific CSS
+│   ├── features/         # Feature-specific modules (encapsulated functionality)
+│   │   ├── Profile/      # Example feature (Profile)
+│   │   │   ├── ProfilePage.tsx     # Feature page/component
+│   │   │   ├── profile.api.ts      # API calls (e.g., React Query hooks)
+│   │   │   └── ...                 # Other feature-specific subcomponents, hooks, etc.
+│   │   └── Dashboard/    # Another feature module
+│   ├── pages/            # Route-level components (compose features/components into pages)
+│   ├── hooks/            # Custom React hooks (e.g. useFetchData.ts)
+│   ├── utils/            # Utility functions (pure functions, formatters, etc.)
+│   ├── lib/              # External integrations (e.g. API clients, config)
+│   ├── styles/           # Global styles and theming (Tailwind base, CSS resets, theme variables)
+│   ├── router/           # Routing configuration (e.g., React Router setup)
+│   ├── App.tsx           # Root component (includes Router and top-level providers)
+│   └── main.tsx          # Application entry point (bootstraps React with Vite)
+├── package.json          # Project metadata and dependencies
+├── vite.config.ts        # Vite configuration (including any alias setup)
+├── tailwind.config.js    # Tailwind CSS configuration (extended theme, etc.)
+├── postcss.config.js     # PostCSS configuration for Tailwind
+└── ... (other config files like .eslintrc.js, .prettierrc, etc.)
+```
+
+**Encapsulation and Modularity:** Each feature resides in its own folder under `src/features/`, containing all JS/TS, CSS, and test files for that feature. Reusable UI elements that are used across features live in `src/components/` and remain **presentational and stateless**.
+
+...(rest of the content omitted here for brevity—insert full content from your plan)...
